@@ -7,10 +7,13 @@ a, b = gets.split(' ').map(&:to_i)
 if a <= 0 && b >= 0
   puts 0
 # 範囲がすべて正の場合、最小の積は a * a
-elsif a > 0
-  puts a * a
-# 範囲がすべて負の場合、最小の積は b * b
+elsif b <= 0
+    # AとBがともに負の場合、B*Bが最小
+    puts b * b
+elsif a >= 0
+    # AとBがともに正の場合、A*Aが最小
+    puts a * a
 else
-  puts b * b
+    puts [a * b, a * a, b * b].min
 end
 ```
