@@ -14,3 +14,13 @@ else
   puts 'YES'
 end
 ```
+もしくは
+```ruby
+h, w = gets.split.map(&:to_i)
+
+if h % 2 == 0 && w % 2 == 0 && h != 0 && w != 0
+    puts 'YES'
+else
+    puts 'NO'
+end
+```
