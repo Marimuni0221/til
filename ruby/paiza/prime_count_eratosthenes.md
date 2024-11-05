@@ -8,10 +8,10 @@ n = gets.to_i
 is_prime = Array.new(n + 1, true)
 is_prime[0] = is_prime[1] = false  # 0と1は素数ではないので除外
 
-# エラトステネスの篩(ふるい)で素数をマーク
-(2..Math.sqrt(n)).each do |i|
-  if is_prime[i]
-    (i * i).step(n, i) do |j|
+# 素数の候補の倍数をふるいにかける
+(2..Math.sqrt(n).to_i).each do |i| # iは2から√nまでの数を取り出す
+  if is_prime[i]               # iがまだ素数なら
+    (i * i).step(n, i) do |j|  # iの倍数（i*i, i*i+i, ...）を素数でないとする
       is_prime[j] = false
     end
   end
